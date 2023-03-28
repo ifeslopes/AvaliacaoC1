@@ -1,5 +1,3 @@
-package model;
-
 public class Produto {
 
     private int codigo;
@@ -8,6 +6,7 @@ public class Produto {
     private double precoDeVenda;
     private static int geradorDeCodigo =1;
 
+    public Produto(){};
     public Produto(String nome, int quantidade, double precoDeVenda) {
         this.nome = nome;
         this.quantidade = quantidade;
