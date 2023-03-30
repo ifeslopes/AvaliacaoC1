@@ -5,7 +5,7 @@ public class ProgramaPrincipal {
     public static void main(String[] args) {
 
 
-        EntradaEmEstoque entradaEmEstoque = new EntradaEmEstoque();
+        Estoque entradaEmEstoque = new Estoque();
         Scanner entrada = new Scanner(System.in);
         int opecao ;
         do {
@@ -19,9 +19,11 @@ public class ProgramaPrincipal {
             }if (opecao==2){
 
             entradaEmEstoque.vendaDeIntens();
+            entradaEmEstoque.mostraTotalCompra();
             }
 
         } while (opecao !=3);
+        entrada.close();
 
 
     }

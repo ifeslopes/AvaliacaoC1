@@ -46,3 +46,13 @@ de diminuir a quantidade em estoque.<br>
 terminar sua compra.<br>
 • Ao final, imprima na tela a String com as informações dos produtos vendidos e o
 valor total da venda.
+
+### Arvore De Pastas ###
+```
+├── README.md
+└── src
+    ├── Estoque.java
+    ├── Produto.java
+    └── ProgramaPrincipal.java
+```
+

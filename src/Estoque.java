@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class EntradaEmEstoque {
+public class Estoque {
 
     private Produto[] produtoVet = new Produto[10];
     private int numeroProduto =0;
     private static String produtoVendidos="";
-    private static double valorTotal;
+    private static double somaTotalDeCompras;
     private  static Scanner entrada =new Scanner(System.in);
 
 
@@ -67,7 +67,7 @@ public class EntradaEmEstoque {
         String nome = entrada.next();
         System.out.println("Entre com quantidade:");
         int quantidade = entrada.nextInt();
-        System.out.println("Entre com valor:");
+        System.out.println("Entre com valor R$:");
         double valo = entrada.nextDouble();
 
         Produto produto =new Produto(nome,quantidade,valo);
@@ -89,6 +89,7 @@ public class EntradaEmEstoque {
 
 
     //Venda de produtos
+    /* Daqui para baixo são os metodos respossavel por Vendas */
 
     public void vendaDeIntens(){
         mostraEstoque();
@@ -106,22 +107,23 @@ public class EntradaEmEstoque {
             System.out.println("Produdo não encontrado!");
         }
         if(opecao >= 0){
-            int continarComprando=0;
+            char continarComprando=0;
 
 
                 int quantidade = quantidadeEmEstoque(opecao);
                 System.out.println(" produto atulaizado! ");
                 produtoVendidos += vendendoProduto(opecao, quantidade);
 
-                System.out.println("deseja continunar comprando? entre com id do produto ou  -1 sair");
-                if(continarComprando == -1){
+                System.out.println("deseja continunar comprando? entre com C ");
+                continarComprando = entrada.next().toUpperCase().charAt(0);
+                if(continarComprando == 'C'){
                     vendaDeIntens();
                 }
 
 
 
-
         }
+        entrada.close();
 
     }
 
@@ -134,8 +136,8 @@ public class EntradaEmEstoque {
          quantidade = entrada.nextInt();
 
          if(produtoVet[opecao].getQuantidade()< quantidade){
-            System.out.println("Quantidade em estoque  inferior  quantidade a ser vendida!");
-            System.out.println("Quantidade em estoque:"+produtoVet[opecao].getQuantidade());
+            System.out.println("Quantidade em estoque insuficiente!! ");
+            System.out.println("Quantidade em estoque: "+produtoVet[opecao].getQuantidade());
 
          }
         }while (produtoVet[opecao].getQuantidade()< quantidade);
@@ -157,10 +159,10 @@ public class EntradaEmEstoque {
         int quantidaProduto = produtoVet[indece].getQuantidade();
 
         produtoVet[indece].setQuantidade(quantidaProduto - quantidade);
-        valorTotal +=quantidade * produto.getPrecoDeVenda();
+        somaTotalDeCompras +=quantidade * produto.getPrecoDeVenda();
 
-        return " Nome do produto: "+produto.getNome()+" Valor do produto R$:"+produto.getPrecoDeVenda()+
-                " Quantidade Vendida " +quantidade+" Valor total R$: "+ quantidade * produto.getPrecoDeVenda()+"\n";
+        return " Nome do produto: "+produto.getNome()+", Valor do produto: R$:"+produto.getPrecoDeVenda()+
+                ", Quantidade Vendida: " +quantidade+", Valor total R$: "+ quantidade * produto.getPrecoDeVenda()+"\n";
     }
     public void mostraEstoque(){
         System.out.println("\n Produtos em estoque:");
@@ -174,7 +176,12 @@ public class EntradaEmEstoque {
         }
     }
 
-    public void mostraTotalCompra()
+    public void mostraTotalCompra(){
+        System.out.println(produtoVendidos);
+        System.out.println("Total Das Compras R$: "+ somaTotalDeCompras);
+
+    }
+
 
 
 
