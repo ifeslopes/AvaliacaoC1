@@ -105,6 +105,7 @@ public class Estoque {
 
         if(opecao==-1){
             System.out.println("Produdo não encontrado!");
+            vendaDeIntens();
         }
         if(opecao >= 0){
             char continarComprando=0;
@@ -123,7 +124,7 @@ public class Estoque {
 
 
         }
-        entrada.close();
+
 
     }
 

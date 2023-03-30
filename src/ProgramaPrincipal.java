@@ -6,13 +6,13 @@ public class ProgramaPrincipal {
 
 
         Estoque entradaEmEstoque = new Estoque();
-        Scanner entrada = new Scanner(System.in);
+        Scanner entrada1 = new Scanner(System.in);
         int opecao ;
         do {
             System.out.println("1 – Entrada em Estoque\n" +
                     "2 – Venda\n" +
                     "3 – Sai");
-            opecao =entrada.nextInt();
+            opecao =entrada1.nextInt();
             if (opecao==1){
 
             entradaEmEstoque.EntradaDeEstoque();
@@ -23,7 +23,7 @@ public class ProgramaPrincipal {
             }
 
         } while (opecao !=3);
-        entrada.close();
+
 
 
     }
